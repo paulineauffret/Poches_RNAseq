@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#PBS parameters...
+
+WORKING_DIRECTORY=	#path to working/output directory
+VCFTOOLS_ENV=		#path to vcftools version 0.1.14 conda env
+INPUT=			#path to vcf file (resulting from step 06)
+OUTPUT=			#path to output file
+MAX_MISS=1
+MAX_MAF=
+MAF=
+
+$VCFTOOLS_ENV
+
+cd $WORKING_DIRECTORY
+
+vcftools --vcf $INPUT \
+        --out $OUTPUT \
+        --recode \
+        --max-missing $MAX_MISS \
+	--max-maf $MAX_MAF \
+        --maf $MAF \
+
+gzip ${OUTPUT}.recode.vcf

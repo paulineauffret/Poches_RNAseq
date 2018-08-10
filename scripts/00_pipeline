@@ -1,0 +1,21 @@
+1/ STEP 1 : QC RAW READS
+bash 01_1_fastqc_raw_reads.sh
+
+2/ STEP 2 : TRIMMING RAW READS & QC TRIMMED READS
+bash 02_1_trimming_trimmomatic_PE.sh
+
+2/ STEP 3 : MAPPING TRIMMED READS
+bash 03_mapping_PE_bwa.sh
+
+4/ STEP 4 : FILTERING BAM FILES
+bash 04_filtering_bamfiles.sh
+
+5/ STEP 5 : COUNTING TAG
+bash 05_counting_tag_htseq.sh
+
+6/ STEP 6 : SNP CALLING
+qsub 06_freebayes.qsub
+
+7/ FILTERING VCF FILE
+qsub 07_vcftools.qsub
+
