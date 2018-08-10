@@ -13,9 +13,12 @@ bash 04_filtering_bamfiles.sh
 5/ STEP 5 : COUNTING TAG
 bash 05_counting_tag_htseq.sh
 
-6/ STEP 6 : SNP CALLING
+6/ STEP 6 : DUPLICATES MARKING
+bash 06_1_markdup.sh
+
+7/ STEP 7 : SNP CALLING
 qsub 06_freebayes.qsub
 
-7/ FILTERING VCF FILE
-qsub 07_vcftools.qsub
+8/ FILTERING VCF FILE
+qsub 08_vcftools.qsub
 
